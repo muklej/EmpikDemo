@@ -27,9 +27,8 @@ public class UserTest extends TestData {
 		User user = new User(userDto);
 
 		//then
-		Assertions.assertEquals(getValidUserZeroCallculations(), user);
+		Assertions.assertEquals(getValidUserZeroCalculations(), user);
 	}
-
 
 
 }

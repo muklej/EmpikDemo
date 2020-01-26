@@ -6,50 +6,53 @@ import pl.muklejski.empikdemo.model.UserDto;
 
 public class TestData {
 
+	private static final String LOGIN = "muklej";
+	private static final String NAME = "Michal";
+	private static final String USER = "User";
+	private static final String DATE = "2020-01-25T06:07:08Z[UTC]";
+
+
 	protected UserDto getValidUserDto() {
-		return 	UserDto.builder()
-			.id(1523456L)
-			.login("muklej")
-			.name("Michal")
-			.type("user")
-			.publicRepos(10L)
+		return getValidUserDtoBuilderPartiallyFilled()
+			.publicRepos(11L)
 			.followers(5L)
-			.createdAt(ZonedDateTime.parse("2020-01-25T06:07:08Z[UTC]"))
 			.build();
 	}
 
 	protected UserDto getValidUserDtoWithZeroFollowers() {
-		return 	UserDto.builder()
-			.id(1523456L)
-			.login("muklej")
-			.name("Michal")
-			.type("user")
+		return getValidUserDtoBuilderPartiallyFilled()
 			.publicRepos(10L)
 			.followers(0L)
-			.createdAt(ZonedDateTime.parse("2020-01-25T06:07:08Z[UTC]"))
 			.build();
+	}
+
+	private UserDto.UserDtoBuilder getValidUserDtoBuilderPartiallyFilled() {
+		return UserDto.builder()
+			.id(1523456L)
+			.login(LOGIN)
+			.name(NAME)
+			.type(USER)
+			.createdAt(ZonedDateTime.parse(DATE));
 	}
 
 	protected User getValidUser() {
-		return 	User.builder()
-			.id(1523456L)
-			.login("muklej")
-			.name("Michal")
-			.type("user")
-			.createdAt(ZonedDateTime.parse("2020-01-25T06:07:08Z[UTC]"))
-			.calculations(12L)
+		return getValidUserBuilderFilledPartially()
+			.calculations(13L)
 			.build();
 	}
 
-	protected User getValidUserZeroCallculations() {
-		return 	User.builder()
-			.id(1523456L)
-			.login("muklej")
-			.name("Michal")
-			.type("user")
-			.createdAt(ZonedDateTime.parse("2020-01-25T06:07:08Z[UTC]"))
+	protected User getValidUserZeroCalculations() {
+		return getValidUserBuilderFilledPartially()
 			.calculations(0L)
 			.build();
 	}
 
+	private User.UserBuilder getValidUserBuilderFilledPartially() {
+		return User.builder()
+			.id(1523456L)
+			.login(LOGIN)
+			.name(NAME)
+			.type(USER)
+			.createdAt(ZonedDateTime.parse(DATE));
+	}
 }

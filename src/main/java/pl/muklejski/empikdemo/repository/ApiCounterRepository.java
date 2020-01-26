@@ -11,9 +11,8 @@ public interface ApiCounterRepository extends CrudRepository<ApiCounterEntity, S
 		synchronized (this) {
 			ApiCounterEntity apiCounterEntity = this.findById(login)
 				.orElse(new ApiCounterEntity(login));
-			apiCounterEntity.getRequestCount().getAndIncrement();
+			apiCounterEntity.incrementRequestCount();
 			this.save(apiCounterEntity);
 		}
 	}
-
 }
