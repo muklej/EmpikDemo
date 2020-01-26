@@ -1,6 +1,5 @@
 package pl.muklejski.empikdemo.model;
 
-import java.util.concurrent.atomic.AtomicLong;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,10 +18,14 @@ public class ApiCounterEntity {
 	private String login;
 
 	@Column(name = "REQUEST_COUNT")
-	private AtomicLong requestCount;
+	private long requestCount;
 
 	public ApiCounterEntity(String login) {
 		this.login = login;
-		this.requestCount = new AtomicLong(0L);
+		this.requestCount = 0L;
+	}
+
+	public void incrementRequestCount() {
+		this.requestCount++;
 	}
 }

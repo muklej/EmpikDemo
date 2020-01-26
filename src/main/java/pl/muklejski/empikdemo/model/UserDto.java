@@ -14,18 +14,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserDto {
 
-		private long id;
-		private String login;
-		private String name;
-		private String type;
+	private long id;
+	private String login;
+	private String name;
+	private String type;
 
-		@JsonAlias("avatar_url")
-		private String avatarUrl;
+	@JsonAlias("avatar_url")
+	private String avatarUrl;
 
-		@JsonAlias("public_repos")
-		private long publicRepos;
-		private long followers;
+	@JsonAlias("public_repos")
+	private long publicRepos;
+	private long followers;
 
-		@JsonAlias("created_at")
-		private ZonedDateTime createdAt;
+	@JsonAlias("created_at")
+	private ZonedDateTime createdAt;
 }

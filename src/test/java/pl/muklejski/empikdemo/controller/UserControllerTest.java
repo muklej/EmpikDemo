@@ -91,4 +91,4 @@ public class UserControllerTest extends TestData {
 		User user = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), User.class);
 		assertEquals(getValidUser(), user);
 	}
-	}
+}
